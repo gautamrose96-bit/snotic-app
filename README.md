@@ -1,0 +1,1 @@
+# snotic-app
