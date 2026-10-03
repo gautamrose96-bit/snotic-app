@@ -1,0 +1,4 @@
+provider: generic
+url: https://updates.stonicai.com
+channel: latest
+updaterCacheDirName: stonic_gen3-updater

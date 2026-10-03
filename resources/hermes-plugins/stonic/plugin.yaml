@@ -1,0 +1,43 @@
+name: stonic-platform
+label: Stonic Mobile
+kind: platform
+version: 1.2.0
+description: >
+  Stonic mobile app (app.stonicai.com) ko Hermes ka ek messaging platform
+  bana deta hai — bilkul waise hi jaise WhatsApp, Telegram ya Discord hain.
+
+  Ye adapter khud internet se baat nahi karta. Wo Stonic desktop app ke
+  andar chalte hue ek chhote se local bridge (127.0.0.1) se juda rehta hai,
+  aur desktop app hi Supabase Realtime ke zariye phone tak paigham pohnchati
+  hai. Bilkul wohi tareeqa jo WhatsApp adapter ka hai (wo bhi ek local Node
+  bridge se baat karta hai) — is se Hermes ke Python packages mein ek bhi
+  nayi cheez add nahi karni parti. Sirf httpx chahiye, jo pehle se hai.
+author: Stonic AI
+
+requires_env:
+  - name: STONIC_BRIDGE_URL
+    description: "Stonic desktop app ka local bridge (misal: http://127.0.0.1:8749). Desktop app ye khud likhti hai."
+    prompt: "Stonic bridge URL"
+    password: false
+  - name: STONIC_BRIDGE_KEY
+    description: "Bridge ka shared secret. Desktop app ye khud banati aur likhti hai."
+    prompt: "Stonic bridge key"
+    password: true
+
+optional_env:
+  - name: STONIC_CHAT_ID
+    description: "Stonic account ka user id — yehi is chat ki pehchan hai."
+    prompt: "Stonic chat id"
+    password: false
+  - name: STONIC_ALLOWED_USERS
+    description: "Wo Stonic user id jinhein baat karne ki ijazat hai (comma se alag)."
+    prompt: "Allowed Stonic users"
+    password: false
+  - name: STONIC_ALLOW_ALL_USERS
+    description: "Har us shakhs ko ijazat jo bridge tak pohnch jaye (sirf development ke liye)."
+    prompt: "Allow all users? (true/false)"
+    password: false
+  - name: STONIC_HOME_CHANNEL
+    description: "Cron aur notifications kis chat par jayein (default: STONIC_CHAT_ID)."
+    prompt: "Home channel"
+    password: false

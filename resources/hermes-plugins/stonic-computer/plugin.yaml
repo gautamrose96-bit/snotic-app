@@ -1,0 +1,21 @@
+name: stonic-computer
+label: Stonic Computer Use
+kind: standalone
+version: 1.0.0
+description: >
+  Hermes ko `computer_task` tool deta hai — screen par insaan ki tarah mouse
+  aur keyboard chalane wala Agent S3 (Stonic desktop app ke andar chalta hai).
+  Ye plugin khud kuch nahi chalata; sirf desktop app ke local bridge
+  (127.0.0.1) ko kaam deta hai aur natije ka intezaar karta hai. Sirf httpx
+  chahiye, jo Hermes ke paas pehle se hai.
+author: Stonic AI
+
+requires_env:
+  - name: STONIC_BRIDGE_URL
+    description: "Stonic desktop app ka local bridge (desktop app khud likhti hai)."
+    prompt: "Stonic bridge URL"
+    password: false
+  - name: STONIC_BRIDGE_KEY
+    description: "Bridge ka shared secret (desktop app khud likhti hai)."
+    prompt: "Stonic bridge key"
+    password: true
